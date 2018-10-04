@@ -11,7 +11,6 @@ CharacterVector::~CharacterVector() {}
 int CharacterVector::size() 
 {  
 	int s = characterVector.size();
-
 	return s;
 }
 
@@ -20,7 +19,6 @@ int CharacterVector::size()
 char CharacterVector::get(int index) 
 { 
 	char c = characterVector.at(index);
-
 	return c;
 }
 
