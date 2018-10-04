@@ -2,6 +2,9 @@
 #include "IntegerVector.h"
 #include "DoubleVector.h"
 #include "CharacterVector.h"
+#include <exception>
+#include <string>
+#include <stdexcept>
 
 int main()
 {
@@ -11,11 +14,35 @@ int main()
 
    //-------------------------------------------------------------------------
 
-   // test IntegerVector: put, get, size, out_of_range
-
    std::cout << "--------------" << std::endl;
    std::cout << "IntegerVector:" << std::endl;
+
+   iv.put(45, 5);
+   iv.put(3);
+   iv.put(7);
+   iv.put(123491521);
+
+   for(int i = 0; i < iv.size(); i++){
+      std::cout << iv.get(i) << std::endl;
+   }
+
+   std::cout << "iv should be: " << "[45,3,7,123491521]" << std::endl;
+   
+   //For size function
    std::cout << "--------------" << std::endl;
+
+   std::cout << "The size of iv should be: 4" << std::endl;
+   std::cout << iv.size() << std::endl;
+   
+   //For get function
+   std::cout << "-------For Get-------" << std::endl;
+   try{
+      std::cout << iv.get(2) << std::endl;
+      std::cout << "Get value at index: 40 " << iv.get(40) << std::endl;   
+   }
+   catch(const std::out_of_range& e){
+      std::cout << e.what() << '\n';
+   }
 
    //-------------------------------------------------------------------------
 
