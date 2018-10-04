@@ -17,31 +17,47 @@ int main()
    std::cout << "--------------" << std::endl;
    std::cout << "IntegerVector:" << std::endl;
 
-   //
-   std::cout << "----------Testing put-----------" << std::endl;
+   std::cout << "------------------------------------" << std::endl;
+   std::cout << "----Testing put(index, value)-------" << std::endl;
+   std::cout << "------------------------------------" << std::endl;
 
-   iv.put(45, 5);
-   iv.put(3);
-   iv.put(7);
-   iv.put(123491521);
+   std::cout << "Inputting value 65 at index 5 " << std::endl;
+   iv.put(65, 5);
+   std::cout << "Inputting value 70 " << std::endl;
+   iv.put(70);
+   std::cout << "Inputting value 81 " << std::endl;
+   iv.put(81);
+   std::cout << "Inputting value 89 " << std::endl;
+   iv.put(89);
+
+   std::cout << "-------Displaying values of iv-------" << std::endl;
 
    for(int i = 0; i < iv.size(); i++){
-      std::cout << iv.get(i) << std::endl;
+      std::cout << iv.get(i) << '\t';
    }
-
-   std::cout << "iv should be: " << "[45,3,7,123491521]" << std::endl;
+   std::cout << std::endl;
+   std::cout << "iv should have values: " << "[65, 70 , 81, 89]" << std::endl;
    
-
+   std::cout << "------------------------------------" << std::endl;
    std::cout << "----------Testing size--------------" << std::endl;
+   std::cout << "------------------------------------" << std::endl;
 
    std::cout << "The size of iv should be: 4" << std::endl;
-   std::cout << iv.size() << std::endl;
+   std::cout << "iv size is: " << iv.size() << std::endl;
+
+   std::cout << std::endl;
    
    //For get function
-   std::cout << "-------Testing get-------" << std::endl;
+   std::cout << "------------------------------------" << std::endl;
+   std::cout << "-----------Testing get--------------" << std::endl;
+   std::cout << "------------------------------------" << std::endl;
+
    try{
-      std::cout << iv.get(2) << std::endl;
-      std::cout << "Get value at index: 40 " << iv.get(40) << std::endl;   
+      std::cout << "Getting value at index 2 " << std::endl;      
+      std::cout <<iv.get(2) << std::endl;
+      std::cout << "Value at index 2 should be: [7] " << std::endl;
+      std::cout << "Getting value of at index 40 " << std::endl;
+      std::cout << "Get value at index: [40] " << iv.get(40) << std::endl;   
    }
    //Catching out of bounds exception
    catch(const std::out_of_range& e){
@@ -116,44 +132,44 @@ int main()
 //   std::cout << dv.size() << "[0]" << std::endl;
 //   std::cout << "-------------" << std::endl;
    std::cout << "Testing put(value)" << std::endl;
-   dv.put(11.11);
+   dv.put(71.11);
    for ( int i = 0; i < dv.size(); i++)
    {
         std::cout << dv.get(i)<<'\t';
    }
-   std::cout <<"[11.11]"<< std::endl;
+   std::cout <<"[71.11]"<< std::endl;
    std::cout << dv.size() << "[1]" << std::endl;
-   dv.put(22.22);
+   dv.put(72.22);
    for ( int i = 0; i < dv.size(); i++)
    {
         std::cout << dv.get(i)<<'\t';
    }
-   std::cout <<"[11.11	22.22]"<< std::endl;
+   std::cout <<"[71.11	72.22]"<< std::endl;
    std::cout << dv.size() << "[2]" << std::endl;
 
 
    std::cout << "-------------" << std::endl;
    std::cout << "Testing put(value, index)" << std::endl;
-   dv.put(33.33, 5);
+   dv.put(73.33, 5);
    for ( int i = 0; i < dv.size(); i++)
    {
    	std::cout << dv.get(i) << '\t';
    }
-   std::cout <<"[11.11	22.22	33.33]"<< std::endl; 
+   std::cout <<"[71.11	72.22	73.33]"<< std::endl; 
    std::cout << dv.size() << "[3]" << std::endl;
    
-   dv.put(44.44,0);
+   dv.put(74.44,0);
    for ( int i = 0; i < dv.size(); i++)
    {
 	std::cout << dv.get(i)<< '\t';
    }
-   std::cout <<"[44.44	22.22	33.33]"<< std::endl;
+   std::cout <<"[74.44	72.22	73.33]"<< std::endl;
    std::cout << dv.size() << "[3]" << std::endl;
    std::cout << "-------------" << std::endl;
 
    std::cout << "Testing get" << std::endl;  
-   std::cout << dv.get(0) << "[44.44]" << std::endl;
-   std::cout << dv.get(1) << "[22.22]" << std::endl;
+   std::cout << dv.get(0) << "[74.44]" << std::endl;
+   std::cout << dv.get(1) << "[72.22]" << std::endl;
    try
     {
 	std::cout<< dv.get(10) << std::endl;         
@@ -170,13 +186,25 @@ int main()
    //-------------------------------------------------------------------------
 
    // using empty IntegerVector, test appending cv & dv from above 
-//   IntegerVector iv2;
+   IntegerVector iv2;
 
    std::cout << std::endl;
    std::cout << "--------------------------" << std::endl;
    std::cout << "appended-to IntegerVector:" << std::endl;
    std::cout << "--------------------------" << std::endl;
 
+   iv2.appendDoubleVector(dv);
+   for(int i = 0; i < iv2.size(); i++){
+      std::cout << iv2.get(i) << std::endl;
+   }
+   std::cout << "[74.44    72.22    73.33 should be 74, 72, 73]" << std::endl;
+
+   iv2.appendCharacterVector(cv);
+   for(int i = 0; i < iv2.size(); i++){
+      std::cout << iv2.get(i) << std::endl;
+   }
+   std::cout << "-------Final Result ------" << std::endl;
+   std::cout << "[74, 72, 73, b (98), b (98)]" << std::endl;
    //-------------------------------------------------------------------------
 
    // using empty CharacterVector, test appending iv & dv from above
@@ -213,13 +241,27 @@ int main()
    //-------------------------------------------------------------------------
 
    // using empty DoubleVector, test appending iv & cv from above
-//   DoubleVector dv2;
+
+   DoubleVector dv2;
 
    std::cout << std::endl;
    std::cout << "-------------------------" << std::endl;
    std::cout << "appended-to DoubleVector:" << std::endl;
    std::cout << "-------------------------" << std::endl;
-
+   
+   dv2.appendIntegerVector( iv );
+   for ( int i = 0; i < dv2.size(); i++)
+   {
+        std::cout << dv2.get(i)<< ',';
+   }
+   std::cout << "[65,70,81,89]"<<std::endl;
+  
+   dv2.appendCharacterVector( cv );
+   for ( int i = 0; i < dv2.size(); i++)
+   {
+        std::cout << dv2.get(i)<< ',';
+   }
+   std::cout << "[65,70,81,89,98(b),98(b)]"<<std::endl; 
    //-------------------------------------------------------------------------
 
    return 0;
