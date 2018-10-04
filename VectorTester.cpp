@@ -17,6 +17,9 @@ int main()
    std::cout << "--------------" << std::endl;
    std::cout << "IntegerVector:" << std::endl;
 
+   //
+   std::cout << "----------Testing put-----------" << std::endl;
+
    iv.put(45, 5);
    iv.put(3);
    iv.put(7);
@@ -28,18 +31,19 @@ int main()
 
    std::cout << "iv should be: " << "[45,3,7,123491521]" << std::endl;
    
-   //For size function
-   std::cout << "--------------" << std::endl;
+
+   std::cout << "----------Testing size--------------" << std::endl;
 
    std::cout << "The size of iv should be: 4" << std::endl;
    std::cout << iv.size() << std::endl;
    
    //For get function
-   std::cout << "-------For Get-------" << std::endl;
+   std::cout << "-------Testing get-------" << std::endl;
    try{
       std::cout << iv.get(2) << std::endl;
       std::cout << "Get value at index: 40 " << iv.get(40) << std::endl;   
    }
+   //Catching out of bounds exception
    catch(const std::out_of_range& e){
       std::cout << e.what() << '\n';
    }
