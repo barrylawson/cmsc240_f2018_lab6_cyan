@@ -63,28 +63,28 @@ int main()
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.put('a', 0) method" << std::endl;
       cv.put('a', 0);
-      std::cout << "cv = " << cv.get(0) << std::endl;
+      std::cout << "cv = " << cv.get(0) << " [a]" << std::endl;
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.size() method" << std::endl;
-      std::cout << "size of cv = " << cv.size() << std::endl;
+      std::cout << "size of cv = " << cv.size() << " [1]" << std::endl;
       std::cout << "--------------------------------" << std::endl << std::endl;
 
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.put('b', 1) method" << std::endl;
       cv.put('b', 1);
-      std::cout << "cv = " << cv.get(0) << cv.get(1) << std::endl;
+      std::cout << "cv = " << cv.get(0) << cv.get(1) << " [ab]" << std::endl;
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.size() method" << std::endl;
-      std::cout << "size of cv = " << cv.size() << std::endl;
+      std::cout << "size of cv = " << cv.size() << " [2]" << std::endl;
       std::cout << "--------------------------------" << std::endl << std::endl;
 
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.put('b', 0) method" << std::endl;
       cv.put('b', 0);
-      std::cout << "cv = " << cv.get(0) << cv.get(1) << std::endl;
+      std::cout << "cv = " << cv.get(0) << cv.get(1) << " [bb]" << std::endl;
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.size() method" << std::endl;
-      std::cout << "size of cv = " << cv.size() << std::endl;
+      std::cout << "size of cv = " << cv.size() << " [2]" << std::endl;
       std::cout << "--------------------------------" << std::endl << std::endl;
 
       std::cout << "--------------------------------" << std::endl;
@@ -94,8 +94,8 @@ int main()
    }
    catch(std::exception& e)
    {
-      std::cout << "The index entered was invalid. The following exception was thrown: " << e.what() << std::endl;
-      std::cout << "--------------------------------" << std::endl;
+      std::cout << "The following exception was thrown: " << e.what() << std::endl;
+      std::cout << "--------------------------------" << std::endl << std::endl;
    }
 
 
@@ -180,12 +180,35 @@ int main()
    //-------------------------------------------------------------------------
 
    // using empty CharacterVector, test appending iv & dv from above
-//   CharacterVector cv2;
+   CharacterVector cv2;
 
    std::cout << std::endl;
    std::cout << "----------------------------" << std::endl;
    std::cout << "appended-to CharacterVector:" << std::endl;
    std::cout << "----------------------------" << std::endl;
+
+   std::cout << "--------------------------------" << std::endl;
+   std::cout << "Testing cv2.appendIntegerVector(iv) method" << std::endl;
+   cv2.appendIntegerVector(iv);
+   std::cout << cv2.get(0) << "[A]" << std::endl;
+   std::cout << cv2.get(1) << "[F]" << std::endl;
+   std::cout << cv2.get(2) << "[Q]" << std::endl;
+   std::cout << cv2.get(3) << "[Y]" << std::endl;
+   std::cout << "--------------------------------" << std::endl;
+   std::cout << "Testing cv2.size() method" << std::endl;
+   std::cout << "size of cv2 = " << cv2.size() << " [4]" << std::endl;
+   std::cout << "--------------------------------" << std::endl << std::endl;
+
+   std::cout << "--------------------------------" << std::endl;
+   std::cout << "Testing cv2.appendDoubleVector(dv) method" << std::endl;
+   cv2.appendDoubleVector(dv);
+   std::cout << cv2.get(4) << "[J]" << std::endl;
+   std::cout << cv2.get(5) << "[H]" << std::endl;
+   std::cout << cv2.get(6) << "[I]" << std::endl;
+   std::cout << "--------------------------------" << std::endl;
+   std::cout << "Testing cv2.size() method" << std::endl;
+   std::cout << "size of cv2 = " << cv2.size() << " [7]" << std::endl;
+   std::cout << "--------------------------------" << std::endl << std::endl;
 
    //-------------------------------------------------------------------------
 
