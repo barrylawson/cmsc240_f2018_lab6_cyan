@@ -10,37 +10,63 @@ CharacterVector::~CharacterVector() {}
 
 int CharacterVector::size() 
 {  
-   return ...
+	int s = characterVector.size();
+
+	return s;
 }
 
 // just return the character at the specified index; use the at() method rather
 // than [] so that an out_of_range error will be thrown for an invalid index
 char CharacterVector::get(int index) 
 { 
-   return ...
+	char c = characterVector.at(index);
+
+	return c;
 }
 
 // if index is size-legitimate, put the value at that index;
 // otherwise, use push_back to append to the end of the vector
 void CharacterVector::put(char value, int index)
-{
+{	
+	int size = characterVector.size();
+	if(index < size && index >= 0)
+	{
+		characterVector[index] = value;
+	}
+	else
+	{
+		characterVector.push_back(value);
+	}
 }
 
 // use push_back to append
 void CharacterVector::put(char value)
 {
+	characterVector.push_back(value);
 }
 
 // for each integer in integerVector, use static_cast<char> to append as a
 // character to characterVector
-void CharacterVector::appendIntegerVector(IntegerVector& integerVector)
-{
-}
+//void CharacterVector::appendIntegerVector(IntegerVector& integerVector)
+//{
+//	for(int i = 0; i < integerVector.size(); i++)
+//	{
+//		int n = integerVector.get(i);
+//		char appi = static_cast<char>(n);
+//		put(appi);
+//	}
+// }
 
 // for each double in doubleVector, use static_cast<char> to append as a
 // character to characterVector
-void CharacterVector::appendDoubleVector(DoubleVector& doubleVector)
-{
-}
+//void CharacterVector::appendDoubleVector(DoubleVector& doubleVector)
+//{
+//	for(int i = 0; i < doubleVector.size(); i++)
+//	{
+//		int d = doubleVector.get(i);
+//		char appd = static_cast<char>(d);
+//		put(appd);
+//	}
+//}
 
 #endif
