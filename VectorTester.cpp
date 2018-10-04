@@ -84,28 +84,28 @@ int main()
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.put('a', 0) method" << std::endl;
       cv.put('a', 0);
-      std::cout << "cv = " << cv.get(0) << std::endl;
+      std::cout << "cv = " << cv.get(0) << " [a]" << std::endl;
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.size() method" << std::endl;
-      std::cout << "size of cv = " << cv.size() << std::endl;
+      std::cout << "size of cv = " << cv.size() << " [1]" << std::endl;
       std::cout << "--------------------------------" << std::endl << std::endl;
 
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.put('b', 1) method" << std::endl;
       cv.put('b', 1);
-      std::cout << "cv = " << cv.get(0) << cv.get(1) << std::endl;
+      std::cout << "cv = " << cv.get(0) << cv.get(1) << " [ab]" << std::endl;
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.size() method" << std::endl;
-      std::cout << "size of cv = " << cv.size() << std::endl;
+      std::cout << "size of cv = " << cv.size() << " [2]" << std::endl;
       std::cout << "--------------------------------" << std::endl << std::endl;
 
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.put('b', 0) method" << std::endl;
       cv.put('b', 0);
-      std::cout << "cv = " << cv.get(0) << cv.get(1) << std::endl;
+      std::cout << "cv = " << cv.get(0) << cv.get(1) << " [bb]" << std::endl;
       std::cout << "--------------------------------" << std::endl;
       std::cout << "Testing cv.size() method" << std::endl;
-      std::cout << "size of cv = " << cv.size() << std::endl;
+      std::cout << "size of cv = " << cv.size() << " [2]" << std::endl;
       std::cout << "--------------------------------" << std::endl << std::endl;
 
       std::cout << "--------------------------------" << std::endl;
@@ -115,8 +115,8 @@ int main()
    }
    catch(std::exception& e)
    {
-      std::cout << "The index entered was invalid. The following exception was thrown: " << e.what() << std::endl;
-      std::cout << "--------------------------------" << std::endl;
+      std::cout << "The following exception was thrown: " << e.what() << std::endl;
+      std::cout << "--------------------------------" << std::endl << std::endl;
    }
 
 
@@ -137,44 +137,44 @@ int main()
 //   std::cout << dv.size() << "[0]" << std::endl;
 //   std::cout << "-------------" << std::endl;
    std::cout << "Testing put(value)" << std::endl;
-   dv.put(11.11);
+   dv.put(71.11);
    for ( int i = 0; i < dv.size(); i++)
    {
         std::cout << dv.get(i)<<'\t';
    }
-   std::cout <<"[11.11]"<< std::endl;
+   std::cout <<"[71.11]"<< std::endl;
    std::cout << dv.size() << "[1]" << std::endl;
-   dv.put(22.22);
+   dv.put(72.22);
    for ( int i = 0; i < dv.size(); i++)
    {
         std::cout << dv.get(i)<<'\t';
    }
-   std::cout <<"[11.11	22.22]"<< std::endl;
+   std::cout <<"[71.11	72.22]"<< std::endl;
    std::cout << dv.size() << "[2]" << std::endl;
 
 
    std::cout << "-------------" << std::endl;
    std::cout << "Testing put(value, index)" << std::endl;
-   dv.put(33.33, 5);
+   dv.put(73.33, 5);
    for ( int i = 0; i < dv.size(); i++)
    {
    	std::cout << dv.get(i) << '\t';
    }
-   std::cout <<"[11.11	22.22	33.33]"<< std::endl; 
+   std::cout <<"[71.11	72.22	73.33]"<< std::endl; 
    std::cout << dv.size() << "[3]" << std::endl;
    
-   dv.put(44.44,0);
+   dv.put(74.44,0);
    for ( int i = 0; i < dv.size(); i++)
    {
 	std::cout << dv.get(i)<< '\t';
    }
-   std::cout <<"[44.44	22.22	33.33]"<< std::endl;
+   std::cout <<"[74.44	72.22	73.33]"<< std::endl;
    std::cout << dv.size() << "[3]" << std::endl;
    std::cout << "-------------" << std::endl;
 
    std::cout << "Testing get" << std::endl;  
-   std::cout << dv.get(0) << "[44.44]" << std::endl;
-   std::cout << dv.get(1) << "[22.22]" << std::endl;
+   std::cout << dv.get(0) << "[74.44]" << std::endl;
+   std::cout << dv.get(1) << "[72.22]" << std::endl;
    try
     {
 	std::cout<< dv.get(10) << std::endl;         
@@ -224,22 +224,59 @@ int main()
    //-------------------------------------------------------------------------
 
    // using empty CharacterVector, test appending iv & dv from above
-//   CharacterVector cv2;
+   CharacterVector cv2;
 
    std::cout << "----------------------------" << std::endl;
    std::cout << "appended-to CharacterVector:" << std::endl;
    std::cout << "----------------------------" << std::endl;
 
+   std::cout << "--------------------------------" << std::endl;
+   std::cout << "Testing cv2.appendIntegerVector(iv) method" << std::endl;
+   cv2.appendIntegerVector(iv);
+   std::cout << cv2.get(0) << "[A]" << std::endl;
+   std::cout << cv2.get(1) << "[F]" << std::endl;
+   std::cout << cv2.get(2) << "[Q]" << std::endl;
+   std::cout << cv2.get(3) << "[Y]" << std::endl;
+   std::cout << "--------------------------------" << std::endl;
+   std::cout << "Testing cv2.size() method" << std::endl;
+   std::cout << "size of cv2 = " << cv2.size() << " [4]" << std::endl;
+   std::cout << "--------------------------------" << std::endl << std::endl;
+
+   std::cout << "--------------------------------" << std::endl;
+   std::cout << "Testing cv2.appendDoubleVector(dv) method" << std::endl;
+   cv2.appendDoubleVector(dv);
+   std::cout << cv2.get(4) << "[J]" << std::endl;
+   std::cout << cv2.get(5) << "[H]" << std::endl;
+   std::cout << cv2.get(6) << "[I]" << std::endl;
+   std::cout << "--------------------------------" << std::endl;
+   std::cout << "Testing cv2.size() method" << std::endl;
+   std::cout << "size of cv2 = " << cv2.size() << " [7]" << std::endl;
+   std::cout << "--------------------------------" << std::endl << std::endl;
+
    //-------------------------------------------------------------------------
 
    // using empty DoubleVector, test appending iv & cv from above
-   //DoubleVector dv2;
+
+   DoubleVector dv2;
 
    std::cout << std::endl;
    std::cout << "-------------------------" << std::endl;
    std::cout << "appended-to DoubleVector:" << std::endl;
    std::cout << "-------------------------" << std::endl;
-
+   
+   dv2.appendIntegerVector( iv );
+   for ( int i = 0; i < dv2.size(); i++)
+   {
+        std::cout << dv2.get(i)<< ',';
+   }
+   std::cout << "[65,70,81,89]"<<std::endl;
+  
+   dv2.appendCharacterVector( cv );
+   for ( int i = 0; i < dv2.size(); i++)
+   {
+        std::cout << dv2.get(i)<< ',';
+   }
+   std::cout << "[65,70,81,89,98(b),98(b)]"<<std::endl; 
    //-------------------------------------------------------------------------
 
    return 0;
