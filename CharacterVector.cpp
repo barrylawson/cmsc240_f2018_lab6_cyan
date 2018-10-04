@@ -45,26 +45,26 @@ void CharacterVector::put(char value)
 
 // for each integer in integerVector, use static_cast<char> to append as a
 // character to characterVector
-//void CharacterVector::appendIntegerVector(IntegerVector& integerVector)
-//{
-//	for(int i = 0; i < integerVector.size(); i++)
-//	{
-//		int n = integerVector.get(i);
-//		char appi = static_cast<char>(n);
-//		put(appi);
-//	}
-// }
+void CharacterVector::appendIntegerVector(IntegerVector& integerVector)
+{
+	for(int i = 0; i < integerVector.size(); i++)
+	{
+		int n = integerVector.get(i);
+		char appi = static_cast<char>(n);
+		put(appi);
+	}
+}
 
 // for each double in doubleVector, use static_cast<char> to append as a
 // character to characterVector
-//void CharacterVector::appendDoubleVector(DoubleVector& doubleVector)
-//{
-//	for(int i = 0; i < doubleVector.size(); i++)
-//	{
-//		int d = doubleVector.get(i);
-//		char appd = static_cast<char>(d);
-//		put(appd);
-//	}
-//}
+void CharacterVector::appendDoubleVector(DoubleVector& doubleVector)
+{
+	for(int i = 0; i < doubleVector.size(); i++)
+	{
+		int d = doubleVector.get(i);
+		char appd = static_cast<char>(d);
+		put(appd);
+	}
+}
 
 #endif
